@@ -1,0 +1,25 @@
+.home {
+    height: 1080px;
+
+    .carousel {
+
+        .carousel_content {
+            height: 100vh;
+            background-size: cover;       
+        }
+
+        .first_slide {
+            background-image: url("../../assets/images/home/Portada00.jpg");
+        }
+
+        .second_slide {
+            background-image: url("../../assets/images/home/Portada01.jpg");
+
+        }
+
+        .third_slide {
+            background-image: url("../../assets/images/home/Portada03.jpg");
+
+        }
+    }
+}
