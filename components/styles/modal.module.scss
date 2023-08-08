@@ -1,0 +1,222 @@
+@import "@/utils/styles.scss";
+
+.modal {
+    @include defaultBoxShadow;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    color: $ds-light;
+    font-family: 'Segoe UI';
+    background-color: hsla(0, 0, 0, 0.3);
+    animation: fadeIn 500ms;
+    z-index: 3;
+}
+
+.fadeOut {
+    opacity: 0;
+    transition: opacity 500ms;
+}
+
+.modal_container {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    z-index: 4;
+    width: 700px;
+    height: 500px;
+    margin-bottom: 100px;
+    padding: 0 20px;
+    background-color: $ds-alt-dark;
+    border-radius: 5px;
+    animation: fadeIn 500ms, moveDown 1000ms;
+}
+
+.modal_header {
+    @include flexCenteredSpaceBtwn;
+    padding: 15px 0;
+    border-bottom: 1px solid $ds-light;
+
+    .course_name {
+        font-size: 22px
+    }
+}
+
+.close_btn {
+    @include resetBtn;
+    color: $ds-light;
+    display: flex;
+    padding: 4px;
+
+    &:hover {
+        color: $ds-yellow;
+        transition: color 300ms
+    }
+
+    div {
+        align-self: center;
+    }
+}
+
+.content_container {
+    display: flex;
+    justify-content: space-between;
+    height: 370px;
+}
+
+.course_description {
+    text-align: justify;
+    margin: 15px 0;
+    opacity: 0.8;
+}
+
+.professor {
+    
+}
+
+.duration {
+    margin-bottom: 10px;
+}
+
+.subtitle {
+    font-size: 20px;
+}
+
+.description {
+    @include formatedScrollbar;
+    max-height: 252px;
+    margin-top: 10px;
+    padding-right: 5px;
+}
+
+.course_details {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    min-width: 275px;
+    flex: 1;
+    margin: 15px 0 15px 15px;
+    opacity: 0.8;
+}
+
+.modes_section {
+    @include flexCenteredSpaceBtwn;
+    margin-top: 10px;
+    font-size: 18px;
+}
+
+.price_container {
+    display: flex;        
+}
+
+.sale_discount { 
+    color: $ds-orange;
+    margin-right: 15px
+}
+
+.price {
+    display: flex;
+    justify-content: flex-end;
+    font-size: 26px;  
+}
+
+.discounted {
+    text-decoration: line-through;
+    opacity: 0.5;
+}
+
+.tags {
+    display: flex;
+    flex-wrap: wrap;
+    margin-top: 10px
+}
+
+
+.inscription_btn {
+    @include resetBtn;
+    font-size: 18px;
+    border-radius: 5px;
+    background-color: $ds-yellow;
+    padding: 10px;
+    margin-top: 10px;
+
+    &:hover {
+        background-color: $ds-orange;
+        transition: background-color 500ms, color 500ms;
+        color: $white-full;
+    }
+}
+
+.end_btn {
+    border: 1px solid $ds-yellow;
+    border-radius: 5px;
+    color: $ds-yellow;
+    padding: 8px;
+
+    &:hover {
+        background-color: $ds-yellow;
+        color: $ds-alt-dark;
+        transition: background-color 300ms, color 300ms
+    }
+}
+
+.modal_footer {
+    display: flex;
+    justify-content: flex-end;
+    border-top: 1px solid $ds-light;
+    padding: 15px 0;
+}
+
+@keyframes fadeIn {
+    0% { opacity: 0; }
+    100% { opacity: 1; }
+}
+
+@keyframes moveDown {
+    0% {margin-bottom: 250px}
+    100% {margin-bottom: 100px}
+}
+
+@media screen and (max-width: 700px) {
+    .content_container {
+        flex-direction: column;
+        height: 460px;
+        min-width: 300px;
+        margin-right: 0;
+    }
+
+    .modal_container {
+        height: 620px;
+        margin: 0 10px;
+    }
+
+    .course_description {
+        min-width: 300px;
+    }
+
+    .description {
+        max-height: 110px;
+    }
+
+    .course_details {
+        margin: 0;
+    }
+
+    .inscription_btn {
+        padding: 5px;
+    }
+
+    .tags {
+
+    }
+
+    @keyframes moveDown {
+        0% {margin-bottom: 100px}
+        100% {margin-bottom: 0}
+    }
+}

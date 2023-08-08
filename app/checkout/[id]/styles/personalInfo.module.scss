@@ -1,0 +1,140 @@
+@import "/utils/styles.scss";
+
+.hide {
+    opacity: 0;
+    transition: opacity 500ms
+}
+
+.personal_info_wrapper {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.personal_info_form {
+    width: 100%;
+    padding: 40px;
+}
+
+.error {
+    font-size: 14px;
+    height: 15px;
+    color: red
+}
+
+.form_item {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 20px;
+
+    .label {
+        font-size: 20px;
+        margin-bottom: 8px;
+    }
+}
+
+.required {
+    color: $ds-orange
+}
+
+.input_frame {
+    position: relative;
+
+    .icon {
+        width: 18px;
+        position: absolute;
+        top: 0;
+        bottom: 0;
+        margin: auto 10px;
+    }
+}
+
+.input_text {
+    height: 50px;
+    padding: 10px 10px;
+    border: 3px solid transparent;
+    border-radius: 5px;
+    font-size: 20px;
+    background-color: $ds-yellow-opacity;
+    width: 100%;
+    min-width: 250px;
+    color: rgba(0, 0, 0, 0.88);
+    outline: none;
+    transition: border-color 300ms;
+
+    &:-webkit-autofill, &:-webkit-autofill:hover, &:-webkit-autofill:focus {
+        border: 3px solid transparent;
+        -webkit-box-shadow: 0 0 0px 1000px $ds-yellow-opacity inset;
+    }   
+
+    &::placeholder {
+        color: $form-border-color;
+    }
+
+    &:hover, &:focus {
+        border-color: $form-outline-color;
+        transition: border-color 300ms;
+    }
+}
+
+.form_row {
+    @include flexCenteredSpaceBtwn
+}
+
+.btns {
+    @include flexCenteredSpaceBtwn;
+}
+
+.btn {
+    @include resetBtn;
+    font-size: 20px;
+    padding: 15px;
+    border-radius: 5px;
+    width: 130px;
+}
+
+.btn_back {
+    @include resetBtn;
+    border: 1px solid $ds-main-dark;
+    color: $ds-main-dark
+}
+
+.btn_next {
+    color: $ds-light;
+    background-color: $ds-main-dark
+}
+
+.loading {
+    background-color: $ds-alt-dark
+}
+
+.signal {
+    font-size: 14px;
+    font-style: italic;
+    margin-bottom: 5px;
+}
+
+@media screen and (max-width: 700px) {
+    .personal_info_form {
+        padding: 20px 0;
+        width: 100%;
+        justify-content: center;
+    }
+
+    .form_row {
+        width: 100%;
+        flex-wrap: wrap;
+    }
+
+    .form_item {
+        width: 100%;
+
+        .label {
+            font-size: 18px;
+        }
+    }
+
+    .input_text {
+        font-size: 18px;
+    }
+}

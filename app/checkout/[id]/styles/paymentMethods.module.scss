@@ -1,0 +1,139 @@
+@import "/utils/styles.scss";
+
+.hide {
+    opacity: 0;
+    transition: opacity 500ms
+}
+
+.payment_methods_form {
+    height: 500px;
+}
+
+.form_items {
+    display: flex;
+    flex-direction: column;
+}
+
+.form_item {
+    display: flex;
+    padding: 20px;
+    height: 140px;
+    font-style: italic;
+    font-weight: 500;
+    margin-bottom: 5px;
+    cursor: pointer;
+    border-radius: 10px;
+}
+
+.selected {
+    border: 3px solid $ds-orange;
+    border-radius: 10px;
+}
+
+.item_input {
+    margin-right: 20px;
+}
+
+.item_content_container {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    flex: 1;
+}
+
+.item_content {
+    flex: 1;
+    display: flex;
+
+    label {
+        cursor: pointer;
+    }
+}
+
+.mp_label {
+    min-width: 200px;
+}
+
+.item_subcontent {
+    display: flex;
+    align-items: center;
+    min-width: 200px;
+    cursor: pointer;
+}
+
+.recommended {
+    color: $ds-orange;
+    font-weight: 700;
+}
+
+.warning {
+    color: $ds-main-dark;
+    opacity: 0.6;
+    margin-left: 10px;
+}
+
+.mp_image {
+    background-image: url("../../../../assets/images/checkout/metodos-de-pago.png");
+    background-size: cover;
+    height: 50px;
+    width: 200px;
+}
+
+.bank_image {
+    background-image: url("../../../../assets/images/checkout/bank.png");
+    background-size: cover;
+    height: 40px;
+    width: 40px;
+    min-width: 40px;
+    margin-right: 10px;
+}
+
+.btns {
+    @include flexCenteredSpaceBtwn;
+    margin-top: 60px
+}
+
+.btn {
+    @include resetBtn;
+    font-size: 20px;
+    padding: 15px;
+    border-radius: 5px;
+    width: 130px;
+}
+
+.btn_back {
+    @include resetBtn;
+    border: 1px solid $ds-main-dark;
+    color: $ds-main-dark
+}
+
+.btn_next {
+    color: $ds-light;
+    background-color: $ds-main-dark
+}
+
+.loading {
+    background-color: $ds-alt-dark
+}
+
+@media screen and (max-width: 1280px) {
+    .payment_methods_form {
+        margin-top: 15px;
+    }
+}
+
+@media screen and (max-width: 650px) {
+
+    .form_item {
+        height: 170px;
+    }
+
+    .item_subcontent {
+        display: flex;
+        flex-wrap: wrap;
+    }
+
+    .warning {
+        margin: 0;
+    }
+}

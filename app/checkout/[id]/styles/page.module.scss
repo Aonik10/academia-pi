@@ -1,0 +1,28 @@
+@import "@/utils/styles.scss";
+
+.checkout {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    background-color: $ds-light;
+}
+
+.steps {
+    @include flexCentered;
+    width: 1200px;
+    height: 100%;
+    flex: 1;
+}
+
+@media screen and (max-width: 1280px) {
+    .checkout {
+        justify-content: start;
+    }
+
+    .steps {
+        padding-top: 10px;
+        align-items: start;
+        height: 100%;
+    }
+}

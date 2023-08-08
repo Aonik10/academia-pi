@@ -1,0 +1,25 @@
+@import "@/utils/styles.scss";
+
+.course_mode {
+    display: flex;
+    
+
+    .live, .check{
+        color: $ds-light
+    }
+
+    .not_live, .cross {
+        opacity: 0.5;
+        text-decoration: line-through;
+    }
+
+    .check {
+        margin-right: 5px;
+        width: 18px;
+    }
+
+    .cross {
+        margin-right: 5px;
+        width: 18px;
+    }
+}

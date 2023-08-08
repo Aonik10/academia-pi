@@ -1,0 +1,189 @@
+@import "/utils/styles.scss";
+
+.pricing {
+    margin: 30px 0;
+    height: 100%;
+}
+
+.plan_container {
+    @include flexCenteredSpaceArnd;
+    margin-bottom: 20px;
+}
+
+.plan_card {
+    @include defaultBoxShadow;
+    border-radius: 10px;
+    width: 300px;
+    height: 460px;
+    cursor: pointer;
+}
+
+.active {
+    // border: 3px solid $ds-yellow;
+    transform: scale(1.02);
+    box-shadow: 0px 0px 20px 5px $ds-alt-dark;
+}
+
+.header {
+    position: relative;
+    background: linear-gradient(160deg, $ds-light 0%, $ds-blue 100%);
+    border-radius: 10px 10px 0 0;
+    margin-bottom: 15px;
+    padding: 10px;
+}
+
+.card_content {
+    padding: 0 15px
+}
+
+.isLive {
+    background: linear-gradient(160deg, $ds-light 0%, $ds-yellow 100%);
+}
+
+.icon {
+    position: absolute;
+    padding: 8px
+}
+
+.title {
+    padding: 10px;
+    text-align: center;
+    font-weight: 700;
+    font-size: 30px;
+    color: $ds-main-dark
+}
+
+.price {
+    text-align: center;
+    font-size: 35px;
+    font-weight: 700;
+    color: $ds-main-dark;
+    margin-bottom: 15px
+}
+
+.description {
+    text-align: center;
+    color: $ds-orange;
+    padding: 0 20px;
+    font-weight: 700;
+    height: 60px;
+    font-size: 14px;
+}
+
+.features_btn {
+    @include resetBtn;
+    position: absolute;
+    visibility: hidden;
+}
+
+.features {
+    padding: 0 20px;
+    text-align: justify;
+}
+
+.feature {
+    font-size: 12px;
+    line-height: 16px;
+    margin-bottom: 10px;
+    color: $ds-alt-dark;
+    font-weight: 700;
+}
+
+
+.btns {
+    @include flexCenteredSpaceBtwn;
+}
+
+.btn {
+    @include resetBtn;
+    font-size: 20px;
+    padding: 15px;
+    border-radius: 5px;
+    width: 130px;
+}
+
+.btn_back {
+    @include resetBtn;
+    border: 1px solid $ds-main-dark;
+    color: $ds-main-dark
+}
+
+.btn_next {
+    color: $ds-light;
+    background-color: $ds-main-dark
+}
+
+.disabled {
+    opacity: 0.5;
+}
+
+.signal {
+    margin-top: 20px;
+    font-size: 14px;
+    font-style: italic;
+    margin-bottom: 5px;
+}
+
+@media screen and (max-width: 700px) {
+    .plan_container {
+        flex-wrap: wrap;
+    }
+
+    .plan_card {
+        width: 100%;
+        min-width: 300px;
+        height: 220px;
+        margin-bottom: 15px;
+    }
+
+    .plan_card_short {
+        height: 410px;
+    }
+
+    .header {
+        padding: 5px;
+    }
+
+    .title {
+        font-size: 25px;
+    }
+
+    .price {
+        font-style: 30px;
+        margin: 0;
+    }
+
+    .description {
+        @include flexCenteredSpaceBtwn;
+        width: 100%;
+        padding: 0 10px;
+        text-align: justify;
+        margin-bottom: 8px;
+    }
+
+    .features_btn {
+        position: inherit;
+        visibility: visible;
+        margin-left: 10px;
+    }
+
+    .hidden {
+        visibility: hidden;
+        height: 0;
+        padding: 0;
+
+        .feature {
+            height: 0;
+            margin: 0
+        }
+    }
+
+    .features {
+        height: 200px;
+        padding: 0 10px;
+    }
+
+    .card_content {
+        height: 0;
+    }
+}

@@ -1,0 +1,129 @@
+@import "@/utils/styles.scss";
+
+.my_course_card {
+    @include defaultBoxShadow;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    margin-right: 10px;
+    border: 1px solid $ds-alt-dark;
+    border-radius: 5px;
+    height: 250px;
+    background-color: $ds-alt-dark;
+    min-width: 420px;
+    font-family: 'Segoe UI';
+    color: $ds-light;
+    padding: 20px
+}
+
+.top_card {
+    display: flex
+}
+
+.course_img_container {
+    height: 120px;
+    width: 120px;
+    border-radius: 15px;
+    overflow: hidden;
+}
+
+.course_img {
+    height: 100%;
+    width: 100%;
+    background-repeat: no-repeat;
+	background-position: center;
+    transition: transform 500ms;
+    background-size: cover;
+}
+
+.my_course_ard:hover .course_img,
+.my_course_ard:focus .course_img {
+  transform: scale(1.2);
+}
+
+.content {
+    padding-left: 20px;
+    height: 120px;
+    flex: 1;
+}
+
+.title {
+    @include formatTextOverflow;
+    font-size: 20px;
+    margin-bottom: 5px;
+}
+
+.details {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    height: 85px;
+}
+
+.detail {
+    display: flex;
+}
+
+.detail_text {
+    font-weight: 700;
+    margin-right: 10px;
+}
+
+.detail_content {
+
+}
+
+.approved {
+    font-weight: 700;
+    color: greenyellow
+}
+
+.pending {
+    font-weight: 700;
+    color: $ds-yellow
+}
+
+.btns {
+    display: flex;
+    justify-content: space-between;
+}
+
+.btn_drive {
+    @include resetBtn;
+    font-size: 20px;
+    font-weight: 700;
+    padding: 10px;
+    background-color: $ds-yellow;
+    color: $ds-main-dark;
+    border-radius: 5px;
+}
+
+@media screen and (max-width: 600px) {
+    .my_course_card {
+        background-image: url();
+        background-size: contain;
+        min-width: 300px;
+    }
+
+    .content {
+        padding-left: 0;
+    }
+
+    .title {
+        font-size: 18px;
+    }
+
+    .detail {
+        font-size: 16px;
+    }
+
+    .course_img_container {
+        height: 0px;
+        width: 0px;
+    }
+
+    .btn_drive {
+        padding: 5px;
+        font-size: 16px;
+    }
+}

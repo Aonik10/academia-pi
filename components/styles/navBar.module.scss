@@ -1,0 +1,90 @@
+@import "@/utils/styles.scss";
+
+.nav_bar {
+    position: fixed;
+    z-index: 2;
+}
+
+.hamburger_container {
+    position: absolute;
+    margin: 15px 0 0 15px
+}
+
+.background_block {
+    position: absolute;
+    height: 100vh;
+    width: 100vw;
+    background-color: black;
+    opacity: 0;
+    z-index: -1;
+    visibility: hidden;
+    transition: opacity 500ms, visibility 500ms
+}
+
+.show {
+    visibility: visible;
+    opacity: 0.6;
+    transition: opacity 500ms
+}
+
+.nav_bar_menu {
+    position: absolute;
+    height: 100vh;
+    width: 60vw;
+    max-width: 280px;
+    background-color: $ds-main-dark;
+    z-index: 1;
+    transition: transform 500ms;
+    transform: translateX(-100%);
+}
+
+.nav_bar_show {
+    z-index: 1;
+    transition: transform 500ms;
+    transform: translateX(0);
+}
+
+.nav_bar_logo {
+    display: flex;
+    flex-direction: row-reverse;
+    width: 100%;
+    padding: 15px 15px 0 0
+}
+
+.nav_bar_links {
+    margin-top: 30px;
+    color: $ds-light;
+    font-size: 20px;
+}
+
+
+.nav_bar_link {
+    padding: 10px 15px;
+    margin-right: 15px;
+    border-radius: 0 20px 20px 0;
+
+    &:hover {
+        background-color: $ds-alt-dark;
+    }
+}
+
+.nav_bar_link_title {
+    text-decoration: inherit;
+    color: inherit;
+
+    &:visited {
+        text-decoration: inherit;
+        color: inherit;
+    }
+}
+
+.emphasis_link {
+    font-weight: 700;
+    background: linear-gradient(160deg, $ds-orange 0%, $ds-yellow 100%);
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.nav_bar_link_active {
+    background-color: $ds-alt-dark;
+}

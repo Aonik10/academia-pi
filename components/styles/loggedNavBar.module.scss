@@ -1,0 +1,57 @@
+@import "@/utils/styles.scss";
+
+.logged_nav_bar {
+    position: sticky;
+    width: 100%;
+    padding: 10px;
+    background-color: $ds-main-dark;
+    border: 1px solid $ds-alt-dark;
+    color: $white-color-soft-opacity
+}
+
+.items_container {
+    display: flex;
+    justify-content: space-between;
+}
+
+.profile_btn {
+    @include resetBtn;
+    border-radius: 15px;
+    width: 40px;
+    height: 40px;
+    
+    img {
+        border-radius: 15px;
+    }
+}
+
+.dropdown_menu {
+    position: absolute;
+    visibility: hidden;
+    top: 100%;
+    right: 0;
+    width: 200px;
+    background-color: $ds-alt-dark;
+}
+
+.menu_active {
+    visibility: visible;
+}
+
+.dropdown_item {
+    display: flex;
+    align-items: center;
+    color: $white-color-soft-opacity;
+    margin: 15px 10px;
+    font-size: 16px;
+    font-family: 'Segoe UI';
+    cursor: pointer;
+
+    &:hover {
+        color: $ds-yellow;
+    }
+
+    .dropdown_item_logo {
+        margin: 0 10px 0 0
+    }
+}

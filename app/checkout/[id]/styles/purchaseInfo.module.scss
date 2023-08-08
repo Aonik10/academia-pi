@@ -1,0 +1,206 @@
+@import "@/utils/styles.scss";
+
+.purchase_info {
+    display: flex;
+    justify-content: center;
+    height: 100vh;
+    width: 33.33%;
+    min-width: 450px;
+    padding: 40px;
+    background-color: $ds-main-dark;
+    color: $ds-light
+}
+
+.resume_container {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    width: 100%;
+    height: 80vh;
+
+    h1 {
+        font-size: 32px;
+        text-align: center;
+    }
+}
+
+.headers {
+    margin-bottom: 25px;
+}
+
+.header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin: 15px 0;
+    font-size: 15px;
+    height: 100px;
+}
+
+.title_date_container {
+    margin-right: 10px;
+}
+
+.title {
+    font-size: 26px;
+    font-weight: 700;
+    color: $ds-orange
+}
+
+.date {
+    opacity: 0.8;
+    font-size: 16px;
+}
+
+.payment_mode {
+    background: linear-gradient(45deg, $ds-light, $ds-blue);
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    font-weight: 700;
+    font-size: 25px;
+}
+
+.purcharse_live {
+    background: linear-gradient(45deg, $ds-yellow, $ds-orange);
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.payment_resume {
+
+    h2 {
+        font-size: 26px;
+        margin-bottom: 15px;
+    }
+}
+
+.payment_item {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 15px;
+    font-size: 18px;
+}
+
+.live_price {
+    font-size: 24px;
+}
+
+.discount {
+    color: $ds-orange
+}
+
+.bigger {
+    font-weight: 700;
+    font-size: 26px;
+}
+
+.break_line {
+    border-bottom: 1px solid $ds-light;
+    margin: 15px 0;
+}
+
+// .cupon_section {
+    
+// }
+
+.add_cupon {
+    display: flex;
+    align-items: center;
+    margin-top: 10px;
+}
+
+.cupon_section_header {
+    opacity: 0.7;
+}
+
+.input_cupon {
+    width: 70%;
+    height: 40px;
+    border-radius: 5px;
+    padding: 10px 10px;
+    outline: none;
+    transition: border-color 300ms;
+    font-size: 20px;
+    color: $ds-main-dark;
+    margin-right: 2%;
+
+    &:-webkit-autofill, &:-webkit-autofill:hover, &:-webkit-autofill:focus {
+        border: 3px solid transparent;
+        -webkit-box-shadow: 0 0 0px 1000px $ds-yellow-opacity inset;
+    }  
+
+    &:hover, &:focus {
+        border-color: $form-outline-color;
+        transition: border-color 300ms;
+    }
+}
+
+.btn {
+    @include resetBtn;
+    background-color: $ds-yellow;
+    padding: 8px;
+    width: 28%;
+    border-radius: 5px;
+    color: $ds-alt-dark;
+    font-size: 18px;
+}
+
+.cupon_advice {
+    margin-top: 5px;
+    font-size: 14px;
+    opacity: 0.5;
+    font-style: italic;
+}
+
+@media screen and (max-width: 1280px) {
+    .purchase_info {
+        width: 100%;
+        min-width: 300px;
+    }
+
+    .resume_container {
+        width: 600px;
+    }
+}
+
+@media screen and (max-width: 500px) {
+    .purchase_info {
+        padding: 15px;
+        height: 80vh;
+    }
+
+    .resume_container {
+        width: 300px;
+        height: 70vh;
+        h1 {
+            font-size: 24px;
+        }
+    }
+
+    .title {
+        font-size: 20px;
+    }
+
+    .header {
+        height: 50px;
+    } 
+
+    .date {
+        font-size: 14px;
+    }
+
+    .payment_mode {
+        font-size: 16px;
+    }
+
+    .payment_resume {
+
+        h2 {
+            font-size: 20px;
+        }
+    }
+
+    .payment_item {
+        font-size: 16px;
+    }
+}

@@ -1,0 +1,76 @@
+@import "@/utils/styles.scss";
+
+.loading {
+    @include flexCentered;
+    color: $ds-light;
+    background-color: $ds-main-dark;
+    flex: 1;
+}
+
+.ds_courses {
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+    overflow: hidden;
+    padding: 30px 70px;
+    background-color: $ds-main-dark;
+    color: $ds-light
+}
+
+.titles {
+
+    .main {
+        font-size: 24px;
+        margin-bottom: 15px;
+    }
+    
+    .subtitle {
+        font-size: 20px;
+    }
+
+    .line {
+        width: 100%;
+        border: 1px solid $ds-alt-dark;
+        margin: 10px 0;
+    }
+}
+
+.courses_container {
+    @include formatedScrollbar
+}
+
+.current_courses {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+	column-gap: 10px;
+    row-gap: 20px;
+	grid-template-rows: auto;
+}
+
+@media screen and (max-width: 1720px) {
+	.current_courses {
+		grid-template-columns: repeat(3, 1fr);
+	}
+}
+
+@media screen and (max-width: 1370px) {
+	.current_courses {
+		grid-template-columns: repeat(2, 1fr);
+	}
+}
+
+@media screen and (max-width: 820px) {
+	.current_courses {
+		grid-template-columns: repeat(2, 1fr);
+	}
+
+    .ds_courses {
+        padding: 10px 20px
+    }
+}
+
+@media screen and (max-width: 700px) {
+    .current_courses {
+		grid-template-columns: repeat(1, 1fr);
+	}
+}

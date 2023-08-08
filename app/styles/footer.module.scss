@@ -1,0 +1,78 @@
+@import "@/utils/styles.scss";
+
+.footer {
+    background-color: $ds-main-dark;
+    padding: 15px;
+}
+
+.content {
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+    color: $ds-light
+}
+
+.brand {
+    display: flex;
+    flex-direction: column;
+    width: 300px;
+    margin: 0 10px 15px 10px;
+}
+
+.logo {
+    margin-bottom: 15px;
+    display: flex;
+    justify-content: center;
+
+    .image {
+        margin-right: 15px;
+    }
+}
+
+.header {
+    flex: 1;
+}
+
+.text {
+    margin: 0
+}
+
+.colored {
+    font-style: italic;
+    color: $ds-orange
+}
+
+.info {
+    width: 300px;
+}
+
+.items {
+    padding: 0;
+}
+
+.item {
+    list-style-type: none;
+    margin-bottom: 10px;
+    cursor: pointer;
+}
+
+.contact_info {
+    display: flex;
+    align-items: center;
+}
+
+.icon {
+    margin-right: 15px;
+}
+
+.whatsapp {
+    filter: invert(70%) sepia(53%) saturate(610%) hue-rotate(85deg) brightness(86%) contrast(100%)
+}
+
+.instagram {
+    filter: invert(27%) sepia(68%) saturate(1555%) hue-rotate(293deg) brightness(95%) contrast(93%)
+}
+
+.location {
+    filter: $primary-color-filter
+}

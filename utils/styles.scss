@@ -1,0 +1,96 @@
+// global variables
+
+$primary-yellow: hsl(45°, 94%, 52%); // #f8be12
+$primary-yellow-dark: hsl(45°, 94%, 15%); // #4a3802
+$secondary-yellow-dark: hsl(45°, 94%, 20%);
+$secondary-color: hsla(9°, 80%, 68%, 1); // #ef806c
+$terciary-color: hsla(9°, 79%, 57%, 1); // #e8543a
+$dark-grey: hsl(59°, 1%, 27%);
+
+// whites
+$white-color-soft-opacity: hsla(0, 100%, 100%, 0.75);
+$white-full: hsla(0, 100%, 100%, 1);
+
+// filters
+$primary-color-filter: invert(74%) sepia(76%) saturate(892%) hue-rotate(350deg) brightness(100%) contrast(95%);
+$white-filter: invert(100%) sepia(0%) saturate(7500%) hue-rotate(348deg) brightness(102%) contrast(105%);
+
+// form utils
+
+$form-bg-color: rgba(255,255,255, 0.7);
+$form-border-color: #d9d9d9;
+$form-outline-color: hsl(9°, 80%, 68%, 0.5);
+
+// dark colors palette
+
+$ds-main-dark: rgb(34, 40, 49);
+$ds-alt-dark: rgb(57, 62, 70);
+$ds-yellow: rgb(255, 211, 105);
+$ds-yellow-opacity: hsla(42°, 100%, 71%, 0.4);
+$ds-light: rgb(238, 238, 238);
+$ds-orange: hsla(9°, 80%, 68%, 1); // #ef806c
+$ds-green: hsla(123°, 100%, 38%, 1); // #00c20a
+$ds-red: hsla(0°, 100%, 38%, 1); // #c20000
+$ds-blue: hsla(217°, 36%, 43%, 1); // #466495
+
+@mixin flexCentered {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+@mixin flexCenteredSpaceBtwn {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+@mixin flexCenteredSpaceArnd {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+
+@mixin defaultBoxShadow {
+    box-shadow: 0px 0px 5px 1px rgba(0,0,0,0.8);
+}
+
+@mixin resetBtn {
+    background-color: transparent;
+    border: none;
+    cursor: pointer;
+}
+
+@mixin formatTextOverflow {
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+@mixin formatTextOverflowMultipleLines($lines) {
+    display: -webkit-box;
+    -webkit-line-clamp: $lines;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+@mixin formatedScrollbar {
+    overflow-y: scroll;
+    flex: 1;
+    scrollbar-width: thin;
+    scrollbar-color: $ds-alt-dark transparent;
+
+    &::-webkit-scrollbar {
+        width: 6px;
+    }
+
+    &::-webkit-scrollbar-track {
+        background: none;
+    }
+
+    &::-webkit-scrollbar-thumb {
+        background-color: $ds-yellow;
+        border-radius: 20px;
+    }
+}

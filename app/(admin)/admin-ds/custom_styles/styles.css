@@ -1,0 +1,84 @@
+.h-33 {
+    height: 33.33%;
+    max-height: 33.33%;
+}
+
+.h-66 {
+    height: 66.66%;
+    max-height: 66.66%;
+}
+
+.w-33 {
+    width: 33.33%;
+    max-width: 33.33%;
+}
+
+.w-66 {
+    width: 66.66%;
+    max-width: 66.66%;
+}
+
+.hf-100 {
+    height: 100px;
+    max-height: 100px
+}
+
+.wf-100 {
+    width: 100px;
+}
+
+.wf-150 {
+    width: 150px;
+}
+
+.wf-200 {
+    width: 200px;
+}
+
+.wf-250 {
+    width: 250px;
+    min-width: 250px;
+}
+
+.wf-300 {
+    width: 300px;
+}
+
+.wf-400 {
+    width: 400px;
+}
+
+.wf-500 {
+    width: 500px;
+}
+
+.wm-150 {
+    max-width: 150px;
+}
+
+.outline-0 {
+    outline: none
+}
+
+.cursor-pointer {
+    cursor: pointer
+}
+
+.custom-file-input {
+    content: "";
+    color: red
+}
+
+.grid-container {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    column-gap: 5px;
+    row-gap: 5px;
+	grid-template-rows: auto;
+}
+
+@media screen and (max-width: 1640) {
+	.grid-container {
+		grid-template-columns: repeat(3, 1fr);
+	}
+}

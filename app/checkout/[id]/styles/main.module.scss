@@ -1,0 +1,83 @@
+@import "/utils/styles.scss";
+
+@keyframes slideIn {
+    from {
+        opacity: 0;
+        transform: translateX(30%); 
+    }
+    to {
+        opacity: 1;
+        transform: translateX(0); 
+    }
+}
+
+.main {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    color: $ds-main-dark;
+    height: 100%;
+    width: 650px;
+}
+
+.hide {
+    opacity: 0;
+    transform: translateX(-30%);
+    transition: transform 500ms, opacity 500ms 
+}
+
+.show {
+    animation: slideIn 500ms
+}
+
+.header {
+    display: flex;
+    align-items: center;
+    margin-bottom: 20px;
+
+    h1 {
+        margin: 0 10px 0 0
+    }
+}
+
+.title {
+    font-weight: 700;
+    font-size: 40px; 
+}
+
+.next {
+    font-size: 25px; 
+    opacity: 0.3;
+}
+
+@media screen and (max-width: 1280) {
+    .paragraph {
+        margin-bottom: 10px;
+    }
+}
+
+@media screen and (max-width: 700px) {
+    .main {
+        width: 100%;
+        margin: 0 15px;
+        height: 100%;
+        justify-content: start;
+    }
+
+    .title {
+        font-size: 25px; 
+    }
+
+    .paragraph {
+        font-size: 14px;
+    }
+
+    .next {
+        font-size: 16px;
+    }
+    
+}
+
+@media screen and (max-width: 400px) {
+
+}

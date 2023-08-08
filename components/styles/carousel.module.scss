@@ -1,0 +1,31 @@
+@import "@/utils/styles.scss";
+
+.slide {
+    height: 100vh;
+    width: 100%;
+    background-size: cover;
+    background-position: center;
+}
+
+.first {
+    background-image: url("../../assets/images/home/Portada01.jpg");
+}
+
+.second {
+    background-image: url("../../assets/images/home/Portada02.jpg");
+}
+
+.third {
+    background-image: url("../../assets/images/home/Portada03-mobile.webp");
+}
+
+.carrousel_caption_item {
+    margin-bottom: 35px;
+    color: $ds-light
+}
+
+@media screen and (min-width: 700px) {
+    .third {
+        background-image: url("../../assets/images/home/Portada03.webp");
+    }
+}

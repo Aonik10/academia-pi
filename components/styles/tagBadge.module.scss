@@ -1,0 +1,17 @@
+@import "@/utils/styles.scss";
+
+.tag_badge {
+    padding: 5px 15px;
+    margin: 2px 4px 2px 0;
+    background-color: $ds-orange;
+    border-radius: 10px;
+    width: fit-content;
+    font-weight: 700;
+}
+
+@media screen and (max-width: 700px) {
+    .tag_badge {
+        padding: 3px;
+        font-size: 14px
+    }
+}

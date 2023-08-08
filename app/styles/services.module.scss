@@ -1,0 +1,25 @@
+@import "@/utils/styles.scss";
+
+.services_wrapper {
+    @include flexCentered;
+}
+
+.services_container {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    z-index: 0;
+}
+
+.services_row {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+.service {
+    margin: 10px;
+    width: 100%;
+    max-width: 400px;
+    text-align: center;
+}

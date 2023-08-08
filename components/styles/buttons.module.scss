@@ -1,0 +1,100 @@
+@import "@/utils/styles.scss";
+
+.inscription_btn {
+    @include resetBtn;
+    font-size: 16px;
+    margin-top: 10px;
+    border-radius: 5px;
+    background-color: $ds-yellow;
+    height: 30px;
+    width: 100%;
+
+    &:hover {
+        background-color: $ds-orange;
+        transition: background-color 500ms, color 500ms;
+        color: $white-full;
+    }
+}
+
+.register_btn {
+    @include resetBtn;
+    padding: 5px;
+    font-size: 18px;
+    margin-top: 10px;
+    border-radius: 5px;
+    background-color: $ds-yellow;
+    width: 100%;
+
+    &:hover {
+        background-color: $ds-orange;
+        transition: background-color 500ms, color 500ms;
+        color: $white-full;
+    }
+}
+
+.whatsapp_btn {
+    @include resetBtn;
+    position: fixed;
+    padding: 8px;
+    background-color: #25D366;
+    border-radius: 50%;
+    bottom: 0;
+    right: 0;
+    z-index: 2;
+    margin: 0 15px 15px 0;
+    box-shadow: 2px 2px 5px 1px rgba(0,0,0,0.6);
+}
+
+/* HAMBURGER INICIO */
+
+.hamburger_btn {
+    width: 30px;
+    height: 30px;
+    cursor: pointer;
+    position: relative;
+    z-index: 2;
+}
+
+// .lines_hamburger_btn {
+//     background: $ds-main-dark;
+// } no es necesario esto dado que esta definido en el elemento html
+
+.lines_hamburger_btn .middle_line, .lines_hamburger_btn::before, .lines_hamburger_btn::after {
+    content: "";
+    position: absolute;
+    background: inherit;
+    top: 15px;
+    width: 100%;
+    height: 2px;
+    border-radius: 15px;
+    transition: transform 500ms, background-color 500ms;
+}
+
+.lines_hamburger_btn::before {
+    transform: translateY(-8px)
+}
+  
+.lines_hamburger_btn::after {
+    transform: translateY(8px)
+}
+
+/* ROTACIONES HAMBURGER INICIO */
+	
+.lines_hamburger_btn.hamburger_active > .middle_line {
+    transform: rotate(-225deg);
+    background: $ds-yellow;
+}
+  
+.lines_hamburger_btn.hamburger_active::before {
+    transform: translateY(0) rotate(135deg);
+    background: $ds-yellow;
+}
+  
+.lines_hamburger_btn.hamburger_active::after {
+    transform: translateY(0) rotate(-135deg);
+    background: $ds-yellow;
+}
+
+/* ROTACIONES HAMBURGER FIN*/
+
+/* HAMBURGER FIN */
