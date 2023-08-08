@@ -24,5 +24,6 @@ export default withAuth(
 );
 
 export const config = {
+    // hola
     matcher: ["/dashboard", "/dashboard/(.*)", "/checkout", "/checkout/(.*)", "/admin-ds/", "/admin-ds/(.*)"],
 };
