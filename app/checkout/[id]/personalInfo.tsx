@@ -1,6 +1,8 @@
 "use client";
 
 import styles from "./styles/personalInfo.module.scss";
+import "bootstrap/dist/css/bootstrap.css";
+import Spinner from "react-bootstrap/Spinner";
 import { useState } from "react";
 import { UserCreated } from "@/utils/interfaces";
 import { updateUser } from "@/utils/api_resources";
@@ -8,6 +10,7 @@ import { useForm } from "react-hook-form";
 
 interface PersonalInformationProps {
     user: UserCreated;
+    setUser: (arg: UserCreated) => void;
     next: (value: "pricing" | "info" | "payment") => void;
 }
 
@@ -28,7 +31,7 @@ function FormInput({ label, signal, input }: FormInputPropsNew) {
     );
 }
 
-export default function PersonalInformation({ user, next }: PersonalInformationProps) {
+export default function PersonalInformation({ user, setUser, next }: PersonalInformationProps) {
     const {
         register,
         formState: { errors },
@@ -51,6 +54,7 @@ export default function PersonalInformation({ user, next }: PersonalInformationP
         try {
             const response = await updateUser(user._id, data);
             if (response.error) throw new Error(response.message);
+            if (response.data) setUser(response.data);
             next("payment");
         } catch (error: any) {
             setError(error.message);
@@ -170,7 +174,7 @@ export default function PersonalInformation({ user, next }: PersonalInformationP
                         type="submit"
                         disabled={loading}
                     >
-                        {loading ? "Loading..." : "Siguiente"}
+                        {loading ? <Spinner /> : "Siguiente"}
                     </button>
                 </div>
             </form>

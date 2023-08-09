@@ -57,8 +57,6 @@ export default function SignInForm() {
                 redirect: true,
                 callbackUrl: "/dashboard",
             });
-            console.log(response);
-
             if (response?.error) throw new Error(response.error);
         } catch (error) {
             console.log(error);

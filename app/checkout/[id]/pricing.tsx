@@ -1,13 +1,16 @@
 "use client";
 
-import { useEffect, useState } from "react";
 import styles from "./styles/pricing.module.scss";
+import "bootstrap/dist/css/bootstrap.css";
+
+import { useEffect, useState } from "react";
 import { useRouter } from "next/navigation";
 import { IconBroadcast, IconVideo } from "@tabler/icons-react";
 import { useDispatch, useSelector } from "react-redux";
 import { PurchaseMode, setMode } from "@/redux/features/purchaseSlice";
 import { RootState } from "@/redux/store";
 import { IconChevronDown, IconChevronUp } from "@tabler/icons-react";
+import { Spinner } from "react-bootstrap";
 
 interface PricingProps {
     next: (value: "pricing" | "info" | "payment") => void;
@@ -140,7 +143,7 @@ export default function Pricing({ next, prices }: PricingProps) {
                     onClick={handleClick}
                     disabled={disabled}
                 >
-                    {loading ? "Cargando..." : "Siguiente"}
+                    {loading ? <Spinner /> : "Siguiente"}
                 </button>
             </div>
 

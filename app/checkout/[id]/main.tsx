@@ -13,6 +13,7 @@ interface MainProps {
 }
 
 export default function Main({ user, course }: MainProps) {
+    const [userData, setUserData] = useState(user);
     const [next, setNext] = useState<"pricing" | "info" | "payment">("pricing");
     const [hide, setHide] = useState(false);
 
@@ -52,7 +53,7 @@ export default function Main({ user, course }: MainProps) {
             {next == "pricing" ? (
                 <Pricing next={setNextTimed} prices={prices} />
             ) : next == "info" ? (
-                <PersonalInformation user={user} next={setNextTimed} />
+                <PersonalInformation user={userData} setUser={setUserData} next={setNextTimed} />
             ) : next == "payment" ? (
                 <PaymentMethods next={setNextTimed} course={course} user_id={user._id} />
             ) : (

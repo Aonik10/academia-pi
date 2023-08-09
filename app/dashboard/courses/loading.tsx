@@ -1,10 +1,10 @@
 import styles from "./styles/page.module.scss";
-import { LdsRing } from "@/components/spinners";
+import { Spinner } from "@/components/spinners";
 
 function Loading() {
     return (
         <div className={styles.loading}>
-            <LdsRing />
+            <Spinner />
         </div>
     );
 }

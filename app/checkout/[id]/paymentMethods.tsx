@@ -7,6 +7,8 @@ import { RootState } from "@/redux/store";
 import { useRouter } from "next/navigation";
 import { ApiResponse, CourseCreated } from "@/utils/interfaces";
 import { SERVER_URL } from "@/utils/api_resources";
+import Spinner from "react-bootstrap/Spinner";
+import "bootstrap/dist/css/bootstrap.css";
 
 interface PaymentMethodProps {
     next: (value: "info" | "payment") => void;
@@ -124,7 +126,7 @@ export default function PaymentMethods({ next, course, user_id }: PaymentMethodP
                     type="submit"
                     disabled={loading}
                 >
-                    {loading ? "Loading..." : "Ir al pago"}
+                    {loading ? <Spinner /> : "Ir al pago"}
                 </button>
             </div>
         </form>
