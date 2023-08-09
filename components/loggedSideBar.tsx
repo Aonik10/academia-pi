@@ -21,11 +21,12 @@ interface SideBarItemProp {
     href: string;
     content: string;
     icon: React.ReactNode;
+    onClick?: () => void;
 }
 
-function SideBarItem({ href, content, icon }: SideBarItemProp) {
+function SideBarItem({ href, content, icon, onClick }: SideBarItemProp) {
     return (
-        <Link href={href} className={styles.side_bar_item}>
+        <Link href={href} className={styles.side_bar_item} onClick={onClick}>
             {icon}
             <div className={styles.side_bar_item_content}>{content}</div>
         </Link>
@@ -57,21 +58,25 @@ function LoggedSideBar({ role }: LoggedSideBarProps) {
                     <div>
                         <SideBarItem
                             href={"/dashboard"}
+                            onClick={() => setDisplay(false)}
                             content="Inicio"
                             icon={<IconHome className={styles.side_item_bar_logo} />}
                         />
                         <SideBarItem
                             href={"/dashboard/courses"}
+                            onClick={() => setDisplay(false)}
                             content="Cursos"
                             icon={<IconShoppingCart className={styles.side_item_bar_logo} />}
                         />
                         <SideBarItem
                             href={"/dashboard/events"}
+                            onClick={() => setDisplay(false)}
                             content="Proximos eventos"
                             icon={<IconCalendarEvent className={styles.side_item_bar_logo} />}
                         />
                         <SideBarItem
                             href={"/dashboard/particular"}
+                            onClick={() => setDisplay(false)}
                             content="Clases particulares"
                             icon={<IconUserSearch className={styles.side_item_bar_logo} />}
                         />
@@ -86,11 +91,12 @@ function LoggedSideBar({ role }: LoggedSideBarProps) {
                         )}
                         <SideBarItem
                             href={"/dashboard/help"}
+                            onClick={() => setDisplay(false)}
                             content="Ayuda"
                             icon={<IconHelp className={styles.side_item_bar_logo} />}
                         />
                         <SideBarItem
-                            href={"/dashboard"}
+                            href={"/"}
                             content=""
                             icon={<IconArrowBarToLeft className={styles.side_item_bar_logo} />}
                         />

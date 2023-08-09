@@ -14,12 +14,17 @@ interface NavBarLinkProps {
     href: string;
     active?: boolean;
     emphasis?: boolean;
+    onClick?: () => void;
 }
 
-function NavBarLink({ title, href, active, emphasis }: NavBarLinkProps) {
+function NavBarLink({ title, href, active, emphasis, onClick }: NavBarLinkProps) {
     return (
         <div className={`${styles.nav_bar_link} ${active ? styles.nav_bar_link_active : ""}`}>
-            <Link className={`${styles.nav_bar_link_title} ${emphasis ? styles.emphasis_link : ""}`} href={href}>
+            <Link
+                className={`${styles.nav_bar_link_title} ${emphasis ? styles.emphasis_link : ""}`}
+                href={href}
+                onClick={onClick}
+            >
                 {title}
             </Link>
         </div>
@@ -44,9 +49,9 @@ export default function NavBar({}: NavBarProps) {
                     <Image width={50} height={50} src={logo} alt="logo"></Image>
                 </div>
                 <div className={styles.nav_bar_links}>
-                    <NavBarLink title="Inicio" href="/" active />
-                    <NavBarLink title="Servicios" href="/#services" />
-                    <NavBarLink title="Contacto" href="/#contact" />
+                    <NavBarLink title="Inicio" href="/" active onClick={() => setDisplay(false)} />
+                    <NavBarLink title="Servicios" href="/#services" onClick={() => setDisplay(false)} />
+                    <NavBarLink title="Contacto" href="/#contact" onClick={() => setDisplay(false)} />
                     <NavBarLink title="Plataforma π" href="/dashboard" emphasis />
                 </div>
             </div>

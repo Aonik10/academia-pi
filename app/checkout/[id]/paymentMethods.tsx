@@ -1,14 +1,14 @@
 "use client";
 
-import { useState } from "react";
 import styles from "./styles/paymentMethods.module.scss";
+import "bootstrap/dist/css/bootstrap.css";
+import { useState } from "react";
 import { useSelector } from "react-redux";
 import { RootState } from "@/redux/store";
 import { useRouter } from "next/navigation";
 import { ApiResponse, CourseCreated } from "@/utils/interfaces";
 import { SERVER_URL } from "@/utils/api_resources";
 import Spinner from "react-bootstrap/Spinner";
-import "bootstrap/dist/css/bootstrap.css";
 
 interface PaymentMethodProps {
     next: (value: "info" | "payment") => void;

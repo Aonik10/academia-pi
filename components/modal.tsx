@@ -1,5 +1,8 @@
 "use client";
 
+import styles from "./styles/modal.module.scss";
+import "bootstrap/dist/css/bootstrap.css";
+
 import { useDispatch, useSelector } from "react-redux";
 import { setDisplay } from "@/redux/features/modalSlice";
 import { useState } from "react";
@@ -7,8 +10,8 @@ import { IconX } from "@tabler/icons-react";
 import { RootState } from "@/redux/store";
 import CourseMode from "./courseMode";
 import { useRouter } from "next/navigation";
-import styles from "./styles/modal.module.scss";
 import TagBadge from "./tagBadge";
+import Spinner from "react-bootstrap/Spinner";
 
 function Modal() {
     const router = useRouter();
@@ -16,12 +19,13 @@ function Modal() {
     const course = useSelector((state: RootState) => state.modal.currentCourse);
     const [exit, setExit] = useState(false);
     const [loading, setLoading] = useState(false);
+    if (course) router.prefetch(`/checkout/${course._id}`);
 
     const onInscription = (id: string) => {
         setLoading(true);
         router.push(`/checkout/${id}`);
-        setLoading(false);
         dispatch(setDisplay(false));
+        setLoading(false);
     };
 
     const closeModal = () => {
@@ -92,7 +96,7 @@ function Modal() {
                                     </div>
                                 </div>
                                 <button className={styles.inscription_btn} onClick={() => onInscription(course._id)}>
-                                    {loading ? "loading..." : "Inscribirme"}
+                                    {loading ? <Spinner /> : "Inscribirme"}
                                 </button>
                             </div>
                         </div>
