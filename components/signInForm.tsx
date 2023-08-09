@@ -36,7 +36,7 @@ function FormInput({ label, name, type, onChange, placeholder, icon }: FormInput
     );
 }
 
-function SignInForm() {
+export default function SignInForm() {
     const router = useRouter();
     const [authData, setAuthData] = useState({
         email: "",
@@ -51,13 +51,15 @@ function SignInForm() {
         setError(false);
         e.preventDefault();
         try {
-            let condition = e.currentTarget.name == "credentials"; // ??
+            console.log(e.currentTarget.name);
+            console.log(authData);
             const response = await signIn(e.currentTarget.name, {
                 email: authData.email,
                 password: authData.password,
                 redirect: false,
                 callbackUrl: "/dashboard",
             });
+            console.log(response);
 
             if (response?.error) throw new Error(response.error);
             router.push("/dashboard");
@@ -122,5 +124,3 @@ function SignInForm() {
         </div>
     );
 }
-
-export default SignInForm;
