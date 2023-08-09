@@ -7,6 +7,7 @@ import { RootState } from "@/redux/store";
 import { useSelector } from "react-redux";
 import styles from "./styles/loggedNavBar.module.scss";
 import Modal from "./modal";
+import { useRouter } from "next/navigation";
 
 interface LoggedNavBarProps {
     image: string;
@@ -28,6 +29,7 @@ function DropDownItem({ content, icon, onClick }: DropDownItemProps) {
 }
 
 function LoggedNavBar({ image }: LoggedNavBarProps) {
+    const router = useRouter();
     const modal = useSelector((state: RootState) => state.modal.display);
     const [active, setActive] = useState(false);
 
@@ -46,12 +48,12 @@ function LoggedNavBar({ image }: LoggedNavBarProps) {
                         <DropDownItem
                             content="Mi perfil"
                             icon={<IconUser className={styles.dropdown_item_logo} />}
-                            onClick={() => console.log("hola")}
+                            onClick={() => router.push("/dashboard/user/profile")}
                         />
                         <DropDownItem
                             content="Mis pagos"
                             icon={<IconWallet className={styles.dropdown_item_logo} />}
-                            onClick={() => console.log("hola")}
+                            onClick={() => router.push("/dashboard/user/payments")}
                         />
                         <DropDownItem
                             content="Cerrar sesión"

@@ -79,7 +79,7 @@ export default function Main({ user, course }: MainProps) {
             ) : next == "payment" ? (
                 <PaymentMethods next={setNextTimed} course={course} user_id={user._id} />
             ) : next == "transfer" ? (
-                <TransferMethod next={setNextTimed} />
+                <TransferMethod next={setNextTimed} course={course} user_id={user._id} />
             ) : (
                 <div>error</div>
             )}

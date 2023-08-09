@@ -1,13 +1,11 @@
-import Course from "@/database/models/course";
-import Inscription from "@/database/models/inscription";
-import User from "@/database/models/user";
+import * as inscriptionController from "@/database/controllers/inscription.controller";
 import mercadopago from "mercadopago";
 import { NextRequest, NextResponse } from "next/server";
 
 export async function POST(req: NextRequest) {
     try {
         mercadopago.configure({
-            access_token: "TEST-2788276839160573-080410-76aa01eee6c4828032ebff7774e70ebe-1442043400",
+            access_token: process.env.MERCADO_PAGO_TOKEN,
         });
         const {
             type,
@@ -16,33 +14,24 @@ export async function POST(req: NextRequest) {
 
         if (type == "payment") {
             const payment = await mercadopago.payment.findById(Number(id));
-            const metadata = payment.response.metadata;
+            const { user_id, course } = payment.response.metadata;
             if (payment.body.status == "approved") {
-                const inscription = await Inscription.create({
-                    user: metadata.user_id,
-                    course: metadata.course._id,
-                    amount_paid: payment.body.transaction_amount,
-                    status: "approved",
-                });
-                await User.findByIdAndUpdate(
-                    metadata.user_id,
-                    {
-                        $push: { inscriptions: inscription._id },
-                    },
-                    { upsert: true, new: true }
+                const inscription = await inscriptionController.create(
+                    user_id,
+                    course._id,
+                    payment.body.transaction_amount,
+                    payment.body.status
                 );
-                await Course.findByIdAndUpdate(
-                    metadata.course._id,
-                    {
-                        $push: { inscriptions: inscription._id },
-                    },
-                    { upsert: true, new: true }
-                );
-                return NextResponse.json({ message: "Inscription created", inscription });
+                if (!inscription)
+                    return NextResponse.json(
+                        { message: "Inscription creation has failed", error: inscription },
+                        { status: 400 }
+                    );
+                return NextResponse.json({ message: "Inscription created", data: inscription }, { status: 200 });
             }
         }
     } catch (error: any) {
-        return NextResponse.json({ message: "Webhook with error" });
+        return NextResponse.json({ message: "An error ocurred", error: error.message }, { status: 500 });
     }
 }
 

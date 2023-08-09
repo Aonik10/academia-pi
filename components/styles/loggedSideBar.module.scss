@@ -1,10 +1,12 @@
 @import "@/utils/styles.scss";
 
 .logged_nav_bar_wrapper {
-    
+    z-index: 1;
+    background: $ds-main-dark;
 }
 
 .hamburger_container {
+    z-index: 2;
     position: absolute;
     visibility: hidden;
 }
@@ -28,6 +30,7 @@
 }
 
 .logged_nav_bar {
+    z-index: 1;
     display: flex;
     flex-direction: column;
     height: 100vh;
@@ -40,7 +43,6 @@
 }
 
 .logged_nav_bar_show {
-    z-index: 1;
     transition: transform 500ms;
     transform: translateX(0);
 }
@@ -88,7 +90,6 @@
         position: absolute;
         transform: translateX(-120%);
         transition: transform 500ms;
-        z-index: 1;
     }
 
     .logged_nav_bar_show {
@@ -99,6 +100,5 @@
     .hamburger_container {
         visibility: visible;
         margin: 15px 0 0 15px;
-        background: $ds-light
     }
 }

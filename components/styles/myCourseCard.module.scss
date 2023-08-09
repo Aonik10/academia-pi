@@ -8,9 +8,9 @@
     margin-right: 10px;
     border: 1px solid $ds-alt-dark;
     border-radius: 5px;
-    height: 250px;
+    height: 230px;
     background-color: $ds-alt-dark;
-    min-width: 420px;
+    min-width: 400px;
     font-family: 'Segoe UI';
     color: $ds-light;
     padding: 20px
@@ -96,6 +96,7 @@
     background-color: $ds-yellow;
     color: $ds-main-dark;
     border-radius: 5px;
+    width: 130px;
 }
 
 @media screen and (max-width: 600px) {
@@ -103,6 +104,7 @@
         background-image: url();
         background-size: contain;
         min-width: 300px;
+        height: 200px;
     }
 
     .content {

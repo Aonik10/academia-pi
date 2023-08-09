@@ -14,7 +14,7 @@ export async function POST(req: NextRequest) {
         const body = await req.json();
 
         mercadopago.configure({
-            access_token: "TEST-2788276839160573-080410-76aa01eee6c4828032ebff7774e70ebe-1442043400",
+            access_token: process.env.MERCADO_PAGO_TOKEN,
         });
 
         const preference: CreatePreferencePayloadAugmented = {
@@ -34,7 +34,7 @@ export async function POST(req: NextRequest) {
             },
             auto_return: "approved",
             // a esta ruta llegan las noticifaciones de la transaccion que se efectuó y podemos validar si se aprobo el pago
-            //notification_url: "https://d98b-181-92-162-146.ngrok.io" + "/api/payments/mercadopago/webhook",
+            //notification_url: "https://b5cf-181-92-162-146.ngrok.io" + "/api/payments/mercadopago/webhook",
             notification_url: SERVER_URL + "/api/payments/mercadopago/webhook",
             metadata: { course: body.course, user_id: body.user_id },
         };

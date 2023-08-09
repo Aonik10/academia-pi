@@ -48,12 +48,21 @@ export interface CourseCreated extends Required<CourseCreate> {
     inscriptions: any[];
 }
 
+export type InscriptionStatus = "approved" | "pending";
+
+export interface InscriptionCreate {
+    user_id: string;
+    course_id: string;
+    amount_paid: number;
+    status: InscriptionStatus;
+}
+
 export interface InscriptionCreated {
     _id: string;
     user: UserCreated;
     course: CourseCreated;
     amount_paid: number;
-    status: "pending" | "approved";
+    status: InscriptionStatus;
     createdAt: Date;
     updatedAt: Date;
 }
