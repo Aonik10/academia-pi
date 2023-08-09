@@ -59,7 +59,7 @@ export default function SignInForm() {
             });
 
             if (response?.error) throw new Error(response.error);
-            router.push("/dashboard");
+            //router.push("/dashboard");
         } catch (error) {
             console.log(error);
             setError(true);
