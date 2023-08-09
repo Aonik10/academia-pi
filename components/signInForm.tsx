@@ -51,15 +51,15 @@ export default function SignInForm() {
         setError(false);
         e.preventDefault();
         try {
-            console.log(e.currentTarget.name);
-            console.log(authData);
+            console.log("event", e.currentTarget.name);
+            console.log("data", authData);
             const response = await signIn(e.currentTarget.name, {
                 email: authData.email,
                 password: authData.password,
                 redirect: false,
                 callbackUrl: "/dashboard",
             });
-            console.log(response);
+            console.log("response", response);
 
             if (response?.error) throw new Error(response.error);
             router.push("/dashboard");
