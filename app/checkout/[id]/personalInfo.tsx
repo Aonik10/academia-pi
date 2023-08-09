@@ -7,6 +7,7 @@ import { useState } from "react";
 import { UserCreated } from "@/utils/interfaces";
 import { updateUser } from "@/utils/api_resources";
 import { useForm } from "react-hook-form";
+import NavButtons from "./navButtons";
 
 interface PersonalInformationProps {
     user: UserCreated;
@@ -64,7 +65,7 @@ export default function PersonalInformation({ user, setUser, next }: PersonalInf
 
     return (
         <div className={styles.personal_info_wrapper}>
-            <form className={styles.personal_info_form} onSubmit={handleSubmit(onSubmit)}>
+            <form className={styles.personal_info_form}>
                 <div className={styles.form_row}>
                     <FormInput
                         label="Nombre"
@@ -159,24 +160,13 @@ export default function PersonalInformation({ user, setUser, next }: PersonalInf
                         }
                     />
                 </div>
-
-                <div className={styles.btns}>
-                    <button
-                        type="button"
-                        className={`${styles.btn_back} ${styles.btn}`}
-                        onClick={() => next("pricing")} //router.push("/dashboard/courses")
-                        disabled={loading}
-                    >
-                        Volver
-                    </button>
-                    <button
-                        className={`${styles.btn_next} ${styles.btn} ${loading ? styles.loading : ""}`}
-                        type="submit"
-                        disabled={loading}
-                    >
-                        {loading ? <Spinner /> : "Siguiente"}
-                    </button>
-                </div>
+                <NavButtons
+                    prevText="Volver"
+                    nextText="Siguiente"
+                    onClickPrev={() => next("pricing")}
+                    onClickNext={handleSubmit(onSubmit)}
+                    loading={loading}
+                />
             </form>
             <div>
                 <p className={styles.signal}>

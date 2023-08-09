@@ -11,6 +11,7 @@ import { PurchaseMode, setMode } from "@/redux/features/purchaseSlice";
 import { RootState } from "@/redux/store";
 import { IconChevronDown, IconChevronUp } from "@tabler/icons-react";
 import { Spinner } from "react-bootstrap";
+import NavButtons from "./navButtons";
 
 interface PricingProps {
     next: (value: "pricing" | "info" | "payment") => void;
@@ -129,24 +130,14 @@ export default function Pricing({ next, prices }: PricingProps) {
                     onClick={() => setSelected("live")}
                 />
             </div>
-            <div className={styles.btns}>
-                <button
-                    className={`${styles.btn_back} ${styles.btn}`}
-                    onClick={() => router.push("/dashboard/courses")}
-                >
-                    Volver
-                </button>
-                <button
-                    className={`${styles.btn_next} ${styles.btn} ${loading ? styles.loading : ""} ${
-                        disabled ? styles.disabled : ""
-                    }`}
-                    onClick={handleClick}
-                    disabled={disabled}
-                >
-                    {loading ? <Spinner /> : "Siguiente"}
-                </button>
-            </div>
-
+            <NavButtons
+                prevText="Volver"
+                nextText="Siguiente"
+                onClickPrev={() => router.push("/dashboard/courses")}
+                onClickNext={handleClick}
+                loading={loading}
+                disabled={disabled}
+            />
             <p className={styles.signal}>Selecciona una modalidad para continuar</p>
         </div>
     );

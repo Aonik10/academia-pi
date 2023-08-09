@@ -1,17 +1,17 @@
 "use client";
 
 import styles from "./styles/paymentMethods.module.scss";
-import "bootstrap/dist/css/bootstrap.css";
 import { useState } from "react";
 import { useSelector } from "react-redux";
 import { RootState } from "@/redux/store";
 import { useRouter } from "next/navigation";
 import { ApiResponse, CourseCreated } from "@/utils/interfaces";
 import { SERVER_URL } from "@/utils/api_resources";
-import Spinner from "react-bootstrap/Spinner";
+import { Next } from "./main";
+import NavButtons from "./navButtons";
 
 interface PaymentMethodProps {
-    next: (value: "info" | "payment") => void;
+    next: (value: Next) => void;
     course: CourseCreated;
     user_id: string;
 }
@@ -59,6 +59,9 @@ export default function PaymentMethods({ next, course, user_id }: PaymentMethodP
                 if (data.redirectUrl) {
                     router.push(data.redirectUrl);
                 }
+            }
+            if (selected == "transfer") {
+                next("transfer");
             }
         } catch (error: any) {
             console.log(error);
@@ -112,23 +115,13 @@ export default function PaymentMethods({ next, course, user_id }: PaymentMethodP
                     </div>
                 </div>
             </div>
-            <div className={styles.btns}>
-                <button
-                    type="button"
-                    className={`${styles.btn_back} ${styles.btn}`}
-                    onClick={() => next("info")}
-                    disabled={loading}
-                >
-                    Volver
-                </button>
-                <button
-                    className={`${styles.btn_next} ${styles.btn} ${loading ? styles.loading : ""}`}
-                    type="submit"
-                    disabled={loading}
-                >
-                    {loading ? <Spinner /> : "Ir al pago"}
-                </button>
-            </div>
+            <NavButtons
+                prevText="Volver"
+                nextText="Ir al pago"
+                onClickPrev={() => next("info")}
+                type="submit"
+                loading={loading}
+            />
         </form>
     );
 }

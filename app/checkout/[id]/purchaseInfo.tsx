@@ -81,7 +81,7 @@ export default function PurchaseInfo({ course }: PurchaseInfoProps) {
                 </section>
                 <section className={styles.payment_resume}>
                     <h2>Detalles del pago</h2>
-                    <ul>
+                    <ul className={styles.list}>
                         <PaymentItem text="Valor curso" amount={coursePrice} />
                         {course.onSale > 0 && purchaseMode == "live" && (
                             <PaymentItem text="Descuento promoción" amount={liveDiscount} isPromotion />

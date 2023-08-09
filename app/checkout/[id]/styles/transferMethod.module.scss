@@ -1,0 +1,47 @@
+@import "/utils/styles.scss";
+
+.transfer_method {
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+    width: 100%;
+}
+
+.list_wrapper {
+    padding: 5px;
+    border-radius: 10px;
+    background: linear-gradient(to right, $ds-orange, $ds-yellow);
+}
+
+.list {
+    border-radius: inherit;
+    background: $ds-light;
+    padding: 10px;
+    margin: 0;
+}
+
+.list_item {
+    display: flex;
+    align-items: center;
+    list-style: none;
+    padding: 0;
+    margin-bottom: 20px;
+}
+
+.text {
+    color: $ds-main-dark;
+    margin: 0 10px 0 0;
+    font-size: 24px;
+    font-weight: 700;
+}
+
+.data {
+    color: $ds-alt-dark;
+    font-size: 24px;
+}
+
+@media screen and (max-width: 700px) {
+    .text, .data {
+        font-size: 20px;
+    }
+}
